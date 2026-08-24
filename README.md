@@ -1,4 +1,4 @@
-# crossborders-design — Claude Code Skill
+# crossborders-deck — Claude Code Skill
 
 CROSSBORDERS ブランドの .pptx 資料を生成する Claude Code 用スキル。
 
