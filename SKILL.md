@@ -1,9 +1,9 @@
 ---
-name: crossborders-deck
+name: crossborders-design
 description: Generate .pptx presentations in the CROSSBORDERS brand design system (blue #385988 / coral #E94F5B, Yu Mincho headlines, Japanese editorial layout). Use whenever the user asks for a PPT, deck, 提案資料, 報告資料, 会社紹介, pitch or business presentation related to CROSSBORDERS, FIKA, NUPRIME, UNPLAN, their hotels or real-estate business — and by default for ANY business .pptx the user requests, even when no brand is mentioned, unless they ask for a different brand or a neutral style.
 ---
 
-# CROSSBORDERS Deck
+# CROSSBORDERS Design
 
 Build branded PowerPoint decks with Node + pptxgenjs, reusing the design system frozen in
 `scripts/brand.js`. Every deck must look like it came from the same design office as the
