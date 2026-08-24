@@ -34,10 +34,19 @@ approved company profile.
    pptxgenjs: run `npm install pptxgenjs` in the working folder, or reuse the existing
    install by copying the script into `C:\Users\kdili\Downloads\crossborders_deck\` style —
    `npm root` there already has it.
-4. **Language:** default Japanese body with English eyebrows/subtitles (the house style).
+4. **REQUIRED — fix Japanese fonts after every build.** pptxgenjs writes `<a:ea charset="-122">`
+   (a Simplified-Chinese charset hint), so kanji render with Chinese glyphs on many machines.
+   After `writeFile()` always run:
+
+   ```bash
+   python C:/Users/kdili/.claude/skills/crossborders-deck/scripts/fix_ja_fonts.py out.pptx
+   ```
+
+   It rewrites every `<a:ea>` to Yu Mincho / Yu Gothic and sets `lang="ja-JP"`.
+5. **Language:** default Japanese body with English eyebrows/subtitles (the house style).
    Follow the user's language if they ask for EN/ZH content — the typography roles stay the same
    (serif statements, tracked EN labels).
-5. **Verify before delivering.** Convert to PDF or images and LOOK at every slide
+6. **Verify before delivering.** Convert to PDF or images and LOOK at every slide
    (PowerPoint COM export works on this machine; see below). Check: nothing overflows,
    red is scarce, whitespace generous, footer/page numbers sequential. Fix and re-render.
 
