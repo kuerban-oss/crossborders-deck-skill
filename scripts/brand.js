@@ -148,4 +148,17 @@ function license(s, o = {}) {
     { x: 0, y, w: W, h: 0.28, fontFace: F.SAN, fontSize: 8.5, color: C.MUTE, align: o.align || "center", margin: 0 });
 }
 
-module.exports = { C, F, W, H, MX, LOGO_AR, LOGO_COLOR, LOGO_WHITE, LICENSE, setup, logo, eyebrow, footer, title, accentRule, symC, drawTable, numberList, statCards, timeline, license };
+// Standard CONTACT block (closing slide). One aligned unit — never hand-build this
+// from separate text boxes, they drift. Defaults = official company info; override via o.
+function contact(s, o = {}) {
+  const y = o.y ?? 5.55;
+  s.addText("CONTACT", { x: MX, y, w: 2.2, h: 0.32, fontFace: F.EN, fontSize: 12, bold: true, color: C.RED, charSpacing: 2.4, align: "left", margin: 0 });
+  const lines = [
+    { text: (o.name ?? "株式会社クロスボーダーズ / CROSSBORDERS JAPAN"), options: { fontSize: 12, bold: true, color: C.INK, breakLine: true } },
+    { text: (o.addr ?? "〒153-0051　東京都目黒区上目黒 4-4-1-8"), options: { fontSize: 10.5, color: C.INK, breakLine: true } },
+    { text: "TEL " + (o.tel ?? "050-1722-7286") + "　｜　" + (o.email ?? "contact@crossborders.tokyo"), options: { fontSize: 10.5, color: C.INK } },
+  ];
+  s.addText(lines, { x: W / 2 - 0.5, y: y - 0.06, w: W / 2 - MX + 0.5, h: 1.0, fontFace: F.SAN, align: "right", valign: "top", lineSpacingMultiple: 1.35, margin: 0 });
+}
+
+module.exports = { C, F, W, H, MX, LOGO_AR, LOGO_COLOR, LOGO_WHITE, LICENSE, setup, logo, eyebrow, footer, title, accentRule, symC, drawTable, numberList, statCards, timeline, license, contact };

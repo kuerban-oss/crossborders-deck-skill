@@ -46,8 +46,10 @@ approved company profile.
 5. **Language:** default Japanese body with English eyebrows/subtitles (the house style).
    Follow the user's language if they ask for EN/ZH content — the typography roles stay the same
    (serif statements, tracked EN labels).
-6. **Closing slide must show the company licenses.** Call `B.license(s)` on the last
-   (Thank you / contact) slide — it prints 宅建業・住宅宿泊管理業 の許可番号 + copyright.
+6. **Closing slide: use `B.contact(s)` + `B.license(s)`.** `B.contact` renders the aligned
+   CONTACT block (company / address / TEL / mail, overridable via options) — never hand-build
+   it from separate text boxes, they end up misaligned.
+   `B.license` prints 宅建業・住宅宿泊管理業 の許可番号 + copyright.
 7. **Deliver the .pptx, never a sandbox-exported PDF.** LibreOffice in environments without
    Japanese fonts (Linux sandboxes ship only Noto Sans CJK **SC**) silently replaces 游明朝/游ゴシック
    with a Simplified-Chinese sans — headlines lose the serif style and kanji get Chinese glyphs.
