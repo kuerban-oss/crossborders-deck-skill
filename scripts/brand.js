@@ -140,4 +140,12 @@ function timeline(s, items, o) {
   });
 }
 
-module.exports = { C, F, W, H, MX, LOGO_AR, LOGO_COLOR, LOGO_WHITE, setup, logo, eyebrow, footer, title, accentRule, symC, drawTable, numberList, statCards, timeline };
+// Company licenses (public credentials). Put on the closing/contact slide of every deck.
+const LICENSE = "宅地建物取引業 東京都知事(1)第111770号　／　住宅宿泊管理業者 国土交通大臣(01)第F04198号";
+function license(s, o = {}) {
+  const y = o.y ?? 6.62;
+  s.addText(LICENSE + (o.suffix ? "　　" + o.suffix : "　　©2026 CROSSBORDERS CO., LTD."),
+    { x: 0, y, w: W, h: 0.28, fontFace: F.SAN, fontSize: 8.5, color: C.MUTE, align: o.align || "center", margin: 0 });
+}
+
+module.exports = { C, F, W, H, MX, LOGO_AR, LOGO_COLOR, LOGO_WHITE, LICENSE, setup, logo, eyebrow, footer, title, accentRule, symC, drawTable, numberList, statCards, timeline, license };

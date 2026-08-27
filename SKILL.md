@@ -46,7 +46,14 @@ approved company profile.
 5. **Language:** default Japanese body with English eyebrows/subtitles (the house style).
    Follow the user's language if they ask for EN/ZH content — the typography roles stay the same
    (serif statements, tracked EN labels).
-6. **Verify before delivering.** Convert to PDF or images and LOOK at every slide
+6. **Closing slide must show the company licenses.** Call `B.license(s)` on the last
+   (Thank you / contact) slide — it prints 宅建業・住宅宿泊管理業 の許可番号 + copyright.
+7. **Deliver the .pptx, never a sandbox-exported PDF.** LibreOffice in environments without
+   Japanese fonts (Linux sandboxes ship only Noto Sans CJK **SC**) silently replaces 游明朝/游ゴシック
+   with a Simplified-Chinese sans — headlines lose the serif style and kanji get Chinese glyphs.
+   Use such PDFs for layout QA only; the final PDF must be exported from PowerPoint on a
+   machine with Japanese fonts.
+8. **Verify before delivering.** Convert to PDF or images and LOOK at every slide
    (PowerPoint COM export works on this machine; see below). Check: nothing overflows,
    red is scarce, whitespace generous, footer/page numbers sequential. Fix and re-render.
 
