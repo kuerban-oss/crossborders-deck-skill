@@ -15,13 +15,14 @@ approved company profile.
    the conversation, or their files. Never invent figures — use 〈ご記入ください〉 placeholders
    for anything unknown. Plan the slide list before writing code: each slide gets one job.
 2. **Read `references/design-system.md`** for colors, typography, page anatomy, and the
-   hard rules. For a full worked example of every pattern, the original deck source is
-   `C:\Users\kdili\Downloads\crossborders_deck\build.js`.
+   hard rules. For a full worked example of every pattern, see
+   `hotel-proposal-skill/scripts/build-deck.mjs`（姉妹リポジトリ、2026-09 再構築後の最新実例）.
+   （旧例 `C:\Users\kdili\Downloads\crossborders_deck\build.js` は旧PCのHDD損失により消失。）
 3. **Write the deck script** in a working folder (the user's project folder or scratchpad):
 
    ```js
    const PptxGenJS = require("pptxgenjs");
-   const B = require("C:/Users/kdili/.claude/skills/crossborders-deck/scripts/brand.js");
+   const B = require("<このリポジトリ>/scripts/brand.js"); // 例: C:/dev/crossborders-deck-skill/scripts/brand.js
    const p = new PptxGenJS(); B.setup(p);
    let s = p.addSlide(); s.background = { color: B.C.WHITE };
    B.eyebrow(s, "01", "SECTION LABEL");
@@ -39,10 +40,11 @@ approved company profile.
    After `writeFile()` always run:
 
    ```bash
-   python C:/Users/kdili/.claude/skills/crossborders-deck/scripts/fix_ja_fonts.py out.pptx
+   python <このリポジトリ>/scripts/fix_ja_fonts.py out.pptx
    ```
 
    It rewrites every `<a:ea>` to Yu Mincho / Yu Gothic and sets `lang="ja-JP"`.
+   Python が無いマシンでは Node 移植版 `hotel-proposal-skill/scripts/fix-ja-fonts.mjs` を使う（同じ処理）。
 5. **Language:** default Japanese body with English eyebrows/subtitles (the house style).
    Follow the user's language if they ask for EN/ZH content — the typography roles stay the same
    (serif statements, tracked EN labels).
