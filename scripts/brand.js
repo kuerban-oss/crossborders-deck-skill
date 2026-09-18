@@ -97,13 +97,13 @@ function drawTable(s, o) {
 }
 
 // Vertical list of numbered blue circles + "serif lead　sans detail" lines.
-// items = [[lead, detail], ...]; o = { x, y, w, step } (step = vertical pitch, default 0.55)
+// items = [[lead, detail], ...]; o = { x, y, w, step, start } (step = vertical pitch, default 0.55; start = 先頭番号, default 1)
 function numberList(s, items, o) {
-  const step = o.step || 0.55;
+  const step = o.step || 0.55, start = o.start || 1;
   items.forEach((e, i) => {
     const y = o.y + i * step;
     s.addShape("ellipse", { x: o.x, y, w: 0.44, h: 0.44, fill: { color: C.BLUE }, line: { type: "none" } });
-    s.addText(String(i + 1).padStart(2, "0"), { x: o.x, y, w: 0.44, h: 0.44, fontFace: F.EN, fontSize: 12, bold: true, color: C.WHITE, align: "center", valign: "middle", margin: 0 });
+    s.addText(String(start + i).padStart(2, "0"), { x: o.x, y, w: 0.44, h: 0.44, fontFace: F.EN, fontSize: 12, bold: true, color: C.WHITE, align: "center", valign: "middle", margin: 0 });
     s.addText([{ text: e[0] + "　", options: { fontFace: F.SER, fontSize: 13, bold: true, color: C.INK } }, { text: e[1], options: { fontFace: F.SAN, fontSize: 10, color: C.MUTE } }],
       { x: o.x + 0.6, y: y - 0.02, w: o.w - 0.6, h: 0.48, valign: "middle", lineSpacingMultiple: 1.05, margin: 0 });
   });
