@@ -86,7 +86,8 @@ function drawTable(s, o) {
         if (m[2]) runs.push({ text: m[2], options: { color: ci === hi ? C.INK : C.MUTE, bold: false, fontSize: valSize - 1, fontFace: F.SAN } });
         s.addText(runs, { x: colX[ci] + (m[2] ? 0.14 : 0), y: ry, w: cols[ci] - (m[2] ? 0.24 : 0), h: rowH, align: m[2] ? "left" : "center", valign: "middle", lineSpacingMultiple: 1.05, margin: 0 });
       } else {
-        s.addText(cell, { x: colX[ci], y: ry, w: cols[ci], h: rowH, fontFace: F.SAN, fontSize: valSize, bold: ci === hi, color: ci === hi ? C.INK : C.MUTE, align: valAlign, valign: "middle", lineSpacingMultiple: 1.05, margin: valAlign === "left" ? [0, 0, 0, 8] : 0 });
+        // pptxgenjs の margin 配列は [左, 右, 下, 上]（pptxgen.cjs.js lIns=margin[0]）。左寄せセルは左 8pt。旧 [0,0,0,8] は上 8pt になっていた（2026-09-30 修正）。
+        s.addText(cell, { x: colX[ci], y: ry, w: cols[ci], h: rowH, fontFace: F.SAN, fontSize: valSize, bold: ci === hi, color: ci === hi ? C.INK : C.MUTE, align: valAlign, valign: "middle", lineSpacingMultiple: 1.05, margin: valAlign === "left" ? [8, 0, 0, 0] : 0 });
       }
     });
   });
